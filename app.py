@@ -26,7 +26,7 @@ totalCache = L1Cache + L2Cache + L3Cache
 coreClock = cores * baseClock
 
 # Arrange features according to training order (this must match what the model expects!)
-features = np.array([[cores, threads, maxTurboClock, baseClock, TDP, L1Cache, L2Cache, L3Cache,
+features = np.array([[cores, threads, maxTurboClock, baseClock, TDP, L1Cache, L3Cache, L2Cache,
                       manufacturer_num, totalCache, coreClock]])
 features_imputed = imputer.transform(features)
 
@@ -37,6 +37,7 @@ if st.button('Predict Performance'):
     st.success(f"Predicted Performance Score: {perf_score:.2f}")
     st.info(f"Predicted Performance Tier: {tier_map.get(perf_tier, 'Unknown')}")
     st.write("Classifier output probabilities:", classifier.predict_proba(features_imputed))
+
 
 
 
