@@ -36,7 +36,8 @@ if st.button('Predict Performance'):
     tier_map = {0: "Low", 1: "Medium", 2: "High"}
     st.success(f"Predicted Performance Score: {perf_score:.2f}")
     st.info(f"Predicted Performance Tier: {tier_map.get(perf_tier, 'Unknown')}")
-  st.write("Classifier output probabilities:", classifier.predict_proba(features_imputed))
+    st.write("Classifier output probabilities:", classifier.predict_proba(features_imputed))
+
 
 
 
