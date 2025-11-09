@@ -39,10 +39,11 @@ if st.button('Predict Performance'):
     perf_percent = perf_score / max_score * 100
     
     st.success(f"Predicted Performance Score: {perf_score:.2f}")
-    st.metric("Performance (% of max)", f"{perf_percent:.1f}%")
+    st.metric("This CPU scores at XX.X% of the best.", f"{perf_percent:.1f}%")
     st.progress(int(perf_percent))
     st.info(f"Predicted Performance Tier: {tier_map.get(perf_tier, 'Unknown')}")
     #st.write("Classifier output probabilities:", classifier.predict_proba(features_imputed))
+
 
 
 
