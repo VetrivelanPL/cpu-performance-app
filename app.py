@@ -33,10 +33,11 @@ features_imputed = imputer.transform(features)
 if st.button('Predict Performance'):
     perf_score = regressor.predict(features_imputed)[0]
     perf_tier = classifier.predict(features_imputed)[0]
-    tier_map = {0: "Low", 1: "Medium", 2: "High"}
+    tier_map = {0: "High", 1: "Low", 2: "Medium"}
     st.success(f"Predicted Performance Score: {perf_score:.2f}")
     st.info(f"Predicted Performance Tier: {tier_map.get(perf_tier, 'Unknown')}")
     st.write("Classifier output probabilities:", classifier.predict_proba(features_imputed))
+
 
 
 
