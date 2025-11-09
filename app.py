@@ -34,9 +34,16 @@ if st.button('Predict Performance'):
     perf_score = regressor.predict(features_imputed)[0]
     perf_tier = classifier.predict(features_imputed)[0]
     tier_map = {0: "High", 1: "Low", 2: "Medium"}
+
+    max_score = joblib.load('max_score.joblib')
+    perf_percent = perf_score / max_score * 100
+    
     st.success(f"Predicted Performance Score: {perf_score:.2f}")
+    st.metric("Performance (% of max)", f"{perf_percent:.1f}%")
+    st.progress(int(perf_percent))
     st.info(f"Predicted Performance Tier: {tier_map.get(perf_tier, 'Unknown')}")
-    st.write("Classifier output probabilities:", classifier.predict_proba(features_imputed))
+    #st.write("Classifier output probabilities:", classifier.predict_proba(features_imputed))
+
 
 
 
