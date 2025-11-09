@@ -3,7 +3,7 @@ import joblib
 import numpy as np
 
 # Load your pre-trained models and imputer
-egressor = joblib.load('final_xgb_regressor.joblib')
+regressor = joblib.load('final_xgb_regressor.joblib')
 classifier = joblib.load('final_xgb_classifier.joblib')
 imputer = joblib.load('imputer.joblib')
 
@@ -36,3 +36,4 @@ if st.button('Predict Performance'):
     tier_map = {0: "Low", 1: "Medium", 2: "High"}
     st.success(f"Predicted Performance Score: {perf_score:.2f}")
     st.info(f"Predicted Performance Tier: {tier_map.get(perf_tier, 'Unknown')}")
+
